@@ -12,6 +12,7 @@ public class Profesional extends Usuario {
      * Constructor por defecto.
      */
     public Profesional() {
+        super("", "", 0); // Invoke the Usuario class constructor with empty values
     }
 
     /**

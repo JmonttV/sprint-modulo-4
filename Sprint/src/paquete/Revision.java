@@ -22,19 +22,21 @@ public final class Revision {
      * Constructor con parámetros.
      *
      * @param identificador El identificador de la revisión.
-     * @param identificadorVisita El identificador de la visita asociada.
      * @param nombre El nombre de la revisión.
      * @param detalle El detalle de la revisión.
      * @param estado El estado de la revisión.
      */
-    public Revision(int identificador, int identificadorVisita, String nombre, String detalle, int estado) {
+    public Revision(int identificador, String nombre, String detalle, String estadoRevision) {
         this.identificador = identificador;
-        this.identificadorVisita = identificadorVisita;
         setNombre(nombre);
         setDetalle(detalle);
         setEstado(estado);
     }
 
+    // Remove the unused constructor
+    // Revision(int idRevision, String nombreRevision, String detalleRevision, String estadoRevision) {
+    //     throw new UnsupportedOperationException("Not supported yet.");
+    // }
     // Getters y Setters
     /**
      * Obtiene el identificador de la revisión.

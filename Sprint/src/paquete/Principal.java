@@ -53,7 +53,7 @@ public class Principal {
     /**
      * Muestra el menú principal de opciones al usuario.
      */
-    static void mostrarMenu() {
+    private static void mostrarMenu() {
         System.out.println(" ");
         System.out.println(" Menú Principal:");
         System.out.println("1. Almacenar Usuario");
@@ -130,9 +130,37 @@ public class Principal {
                 cliente.setDireccion(scanner.nextLine());
                 System.out.print("Ingrese la comuna del cliente: ");
                 cliente.setComuna(scanner.nextLine());
-                System.out.print("Ingrese la edad del cliente: ");
-                cliente.setEdad(scanner.nextInt());
                 contenedor.almacenarCliente(cliente);
+
+                // Crear una visita en terreno
+                System.out.print("Ingrese el identificador de la visita en terreno: ");
+                int idVisita = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Ingrese el día de la visita en terreno (DD/MM/AAAA): ");
+                String diaVisita = scanner.nextLine();
+                System.out.print("Ingrese la hora de la visita en terreno (HH:MM): ");
+                String horaVisita = scanner.nextLine();
+                System.out.print("Ingrese el lugar de la visita en terreno: ");
+                String lugarVisita = scanner.nextLine();
+                System.out.print("Ingrese los comentarios de la visita en terreno: ");
+                String comentariosVisita = scanner.nextLine();
+
+                VisitaEnTerreno visita = new VisitaEnTerreno(idVisita, cliente.getRut(), diaVisita, horaVisita, lugarVisita, comentariosVisita);
+                cliente.agregarVisitaEnTerreno(visita);
+
+                // Crear una revisión para la visita en terreno
+                System.out.print("Ingrese el identificador de la revisión: ");
+                int idRevision = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Ingrese el nombre de la revisión: ");
+                String nombreRevision = scanner.nextLine();
+                System.out.print("Ingrese el detalle de la revisión: ");
+                String detalleRevision = scanner.nextLine();
+                System.out.print("Ingrese el estado de la revisión: ");
+                String estadoRevision = scanner.nextLine();
+
+                Revision revision = new Revision(idRevision, nombreRevision, detalleRevision, estadoRevision);
+                visita.agregarRevision(revision);
             }
             case 2 -> {
                 System.out.print("Ingrese el título del profesional: ");
@@ -161,7 +189,7 @@ public class Principal {
      * @param contenedor
      * @param scanner
      */
-    private static void almacenarCapacitacion(Contenedor contenedor, Scanner scanner) {
+    public static void almacenarCapacitacion(Contenedor contenedor, Scanner scanner) {
         Capacitacion capacitacion = new Capacitacion();
         System.out.print("Ingrese el ID de la capacitación: ");
         while (!scanner.hasNextInt()) {
@@ -206,7 +234,7 @@ public class Principal {
      * @param contenedor
      * @param scanner
      */
-    private static void listarUsuarios(Contenedor contenedor, Scanner scanner) {
+    public static void listarUsuarios(Contenedor contenedor, Scanner scanner) {
         System.out.println("1. Listar todos los usuarios");
         System.out.println("2. Listar usuarios por tipo");
         System.out.print("Seleccione una opción: ");
@@ -307,23 +335,24 @@ public class Principal {
      * @param contenedor
      * @param scanner
      */
-    private static void almacenarRevision(Contenedor contenedor, Scanner scanner) {
+    public static void almacenarRevision(Contenedor contenedor, Scanner scanner) {
         System.out.println("Ingrese los datos de la revisión:");
         System.out.print("ID de la revisión: ");
         int id = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea
         System.out.print("ID de la visita en terreno: ");
-        int idVisita = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea
         System.out.print("Nombre del revisor: ");
         String nombreRevisor = scanner.nextLine();
         System.out.print("Detalle: ");
         String detalle = scanner.nextLine();
         System.out.print("Estado (1: Aprobado, 2: No Aprobado, 3: Sin Observaciones): ");
-        int estado = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea
 
-        Revision revision = new Revision(id, idVisita, nombreRevisor, detalle, estado);
+        System.out.print("Ingrese el estado de la revisión: ");
+        String estadoRevision = scanner.nextLine();
+
+        Revision revision = new Revision(id, nombreRevisor, detalle, estadoRevision);
         contenedor.almacenarRevision(revision);
         System.out.println("Revisión almacenada exitosamente.");
     }
@@ -334,7 +363,7 @@ public class Principal {
      * @param contenedor
      * @param scanner
      */
-    private static void eliminarUsuario(Contenedor contenedor, Scanner scanner) {
+    public static void eliminarUsuario(Contenedor contenedor, Scanner scanner) {
         System.out.print("Ingrese el RUN del usuario a eliminar: ");
         int run = scanner.nextInt();
         scanner.nextLine();  // Consumir el salto de línea

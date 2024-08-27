@@ -13,6 +13,7 @@ public class Administrativo extends Usuario {
      * Constructor vacío para la clase Administrativo.
      */
     public Administrativo() {
+        super("", "", 0); // Replace the empty string and 0 with appropriate values for the Usuario constructor.
     }
 
     /**
