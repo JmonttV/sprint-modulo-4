@@ -4,7 +4,6 @@ package paquete;
  * Clase base que representa a un usuario en el sistema.
  */
 public class Usuario implements Asesoria {
-
     //Atributos
     private String nombre;
     private String fechaNacimiento; // DD/MM/AAAA
@@ -12,8 +11,11 @@ public class Usuario implements Asesoria {
 
     /**
      * Constructor por defecto.
+     *
+     * @param string
+     * @param i
      */
-    public Usuario() {
+    public Usuario(int i, String string) {
     }
 
     /**
@@ -123,166 +125,10 @@ public class Usuario implements Asesoria {
     }
 
     /**
-     * Lista los usuarios con el RUN especificado.
-     *
-     * @param run RUN del usuario a listar.
-     */
-    @Override
-    public void listarUsuarios(int run) {
-        if (this.RUN == run) {
-            System.out.println(this);
-        }
-    }
-
-    /**
      * Muestra la edad del usuario.
      */
     public void mostrarEdad() {
         System.out.println("El usuario tiene X años");
-    }
-
-    @Override
-    public void eliminarCliente(int run) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void eliminarProfesional(int run) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void eliminarAdministrativo(int run) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void eliminarCapacitacion(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void eliminarAccidente(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void eliminarVisitaEnTerreno(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void eliminarRevision(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarUsuarios() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarClientes() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarProfesionales() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarAdministrativos() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarCapacitaciones() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarAccidentes() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarVisitasEnTerreno() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarRevisiones() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarClientes(int run) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarProfesionales(int run) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarAdministrativos(int run) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarCapacitaciones(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarAccidentes(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarVisitasEnTerreno(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarRevisiones(int identificador) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarUsuariosPorTipo(Class<?> tipo) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void listarClientesPorTipo(Class<?> tipo) {
-        // TODO Auto-generated method stub
-
     }
 
 }

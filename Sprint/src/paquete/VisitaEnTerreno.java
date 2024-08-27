@@ -1,5 +1,8 @@
 package paquete;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * La clase VisitaEnTerreno representa una visita en terreno con un
  * identificador, un RUT de cliente, un día, una hora, un lugar y comentarios.
@@ -12,6 +15,7 @@ public final class VisitaEnTerreno {
     private String hora;
     private String lugar;
     private String comentarios;
+    private final List<Revision> revisiones = new ArrayList<>();
 
     /**
      * Constructor por defecto.
@@ -164,6 +168,24 @@ public final class VisitaEnTerreno {
         } else {
             throw new IllegalArgumentException("Los comentarios no pueden exceder los 100 caracteres");
         }
+    }
+
+    /**
+     * Obtiene las revisiones de la visita.
+     *
+     * @return Las revisiones de la visita.
+     */
+    public List<Revision> getRevisiones() {
+        return revisiones;
+    }
+
+    /**
+     * Establece las revisiones de la visita.
+     *
+     * @param revisiones Las revisiones de la visita.
+     */
+    public void agregarRevision(Revision revision) {
+        revisiones.add(revision);
     }
 
     // Validaciónes

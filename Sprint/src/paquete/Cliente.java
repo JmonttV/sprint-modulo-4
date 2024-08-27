@@ -1,5 +1,11 @@
 package paquete;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Clase que representa un usuario cliente.
  */
@@ -15,12 +21,13 @@ public class Cliente extends Usuario {
     private String direccion;
     private String comuna;
     private int edad;
+    private final List<VisitaEnTerreno> visitasEnTerreno = new ArrayList<>();
 
     /**
      * Constructor vacío para la clase Cliente.
      */
     public Cliente() {
-        super();
+        super("", "", 0);
     }
 
     /**
@@ -45,7 +52,8 @@ public class Cliente extends Usuario {
      * @param apellidos Los apellidos del usuario.
      * @param telefono El número de teléfono del usuario.
      * @param afp La AFP (Administradora de Fondos de Pensiones) del usuario.
-     * @param sistemaSalud El sistema de salud del usuario (1: Fonasa, 2: Isapre).
+     * @param sistemaSalud El sistema de salud del usuario (1: Fonasa, 2:
+     * Isapre).
      * @param direccion La dirección del usuario.
      * @param comuna La comuna de residencia del usuario.
      * @param edad La edad del usuario.
@@ -143,6 +151,15 @@ public class Cliente extends Usuario {
      */
     public int getEdad() {
         return edad;
+    }
+
+    /**
+     * Método que retorna las visitas en terreno del cliente.
+     *
+     * @return Las visitas en terreno del cliente.
+     */
+    public List<VisitaEnTerreno> getVisitasEnTerreno() {
+        return visitasEnTerreno;
     }
 
     // Setters
@@ -267,13 +284,29 @@ public class Cliente extends Usuario {
      */
     public void setEdad(int edad) {
         if (edad >= 0 && edad < 150) {
-            this.edad = edad;
+            this.edad = calcularEdad();
         } else {
             throw new IllegalArgumentException("La edad debe ser un número entre 0 y 149");
         }
     }
 
     // Otros métodos
+    public void agregarVisitaEnTerreno(VisitaEnTerreno visita) {
+        visitasEnTerreno.add(visita);
+    }
+
+    /**
+     * Calcula la edad del cliente en base a la fecha de nacimiento.
+     *
+     * @return La edad del cliente.
+     */
+    public int calcularEdad() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaNacimiento = LocalDate.parse(getFechaNacimiento(), formatter);
+        LocalDate fechaActual = LocalDate.now();
+        return Period.between(fechaNacimiento, fechaActual).getYears();
+    }
+
     /**
      * Método que retorna la representación en String de un objeto Cliente.
      *

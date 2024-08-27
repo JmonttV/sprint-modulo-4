@@ -2,6 +2,7 @@ package paquete;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 /**
  * Clase que representa un contenedor de asesorías y capacitaciones. Esta clase
@@ -150,4 +151,14 @@ public class Contenedor {
             System.out.println(capacitación);
         }
     }
+
+	public BooleanSupplier existeUsuario(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier existeCapacitacion(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
