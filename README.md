@@ -63,5 +63,6 @@ Durante el sprint, nos enfocamos en implementar las funcionalidades principales 
 El sistema fue testeado extensivamente para garantizar que cumple con los requerimientos del negocio, mejorando la eficiencia operativa y la capacidad de respuesta de la empresa ante incidentes de seguridad. El equipo colaboró estrechamente para asegurar que todas las metas del sprint fueran alcanzadas de manera efectiva, entregando un producto que está alineado con los objetivos estratégicos de la empresa.
 
 
-# Participantes: Claudio Anranguiz, Joshua Montt, Joeshep López, Lorena Suárez.
+# Participantes: 
+Claudio Anranguiz, Joshua Montt, Joeshep López, Lorena Suárez.
 
