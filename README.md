@@ -55,6 +55,7 @@ Este código gestiona un sistema básico de almacenamiento y visualización de d
 
 Plataforma Usada
 El proyecto fue desarrollado utilizando Eclipse IDE
+Los test fueron realizados on Junit 5
 
 Resumen del Sprint
 Durante el sprint, nos enfocamos en implementar las funcionalidades principales del sistema que incluyen la planificación y control de actividades, la gestión de clientes, y la generación de reportes. Además, se trabajó en la integración de una solución para mantener la comunicación continua con los profesionales, incluso en zonas sin conectividad. El sprint también incluyó la revisión de seguridad y la optimización del sistema para asegurar que sea robusto y escalable.
